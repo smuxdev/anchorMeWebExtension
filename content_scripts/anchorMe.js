@@ -408,7 +408,7 @@
                          "}",
 
                 loadScript: function () {
-                        log("Cargando la extensión...");
+                        log("Cargando la interfaz de la extensión...");
                         this.cargarInterfaz();
                         this.cacheElements();
                         this.cargarHistoricoMarcadores();
@@ -704,27 +704,16 @@
                 }
         };
 
-        // Cargar jQuery si la página no lo tiene.
-       /* var isJQuery = (typeof jQuery === "undefined") ? false : true;
+        var isJQuery = (typeof jQuery === "undefined") ? false : true;
+        var time = 0;
 
-        // Si la página no dispone de jQuery hay que incluirlo, por lo que se debe esperar un tiempo
-        // a que la biblioteca se descargue
+        // Si la página no dispone de jQuery hay que incluirlo
         if (!isJQuery) {
-                log(">>No se ha detectado jQuery en la página, por lo que se procede a su carga...");
-                var script = document.createElement("script");
-                script.src = "libs/jquery-3.1.0.min.js";
-                document.head.appendChild(script);
+            chrome.runtime.sendMessage({"isJQuery": isJQuery})
+            time = 2000;
+        }
 
-                // NOTE: setTimeout() causes javascript to use the global scope ('this' is 'window')
-                setTimeout(App.loadScript.bind(App), 6000);
-        } else {
+        // Se espera un par de segundos para que de tiempo a cargar jquery
+        setTimeout(App.loadScript.bind(App), time);
 
-                // Si se dispone de jQuery se podrá esperar menos, pero hay que dar tiempo a que la página cargue completamente
-                // Las páginas maś complejas se cargan desde varias fuentes, por lo que el "ready" de jQuery no es definitivo.
-                log(">>La página ya dispone de jQuery. Se comenzará con el Script en 2 segundos.");
-
-                // NOTE: setTimeout() causes javascript to use the global scope ('this' is 'window')
-                setTimeout(App.loadScript.bind(App), 2000);
-        }*/
-    App.loadScript.bind(App)();
 }());

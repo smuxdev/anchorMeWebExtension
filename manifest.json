@@ -6,16 +6,21 @@
 
   "description": "WebExtension written to set a reading mark in the pages you choose. Never forget where your reading finish last time.",
   "homepage_url": "https://github.com/babytruckdriver/anchorMeWebExtension",
+
   "icons": {
     "48": "icons/logo.svg"
   },
 
-  "content_scripts": [
-    {
-      "matches": ["*://*.mozilla.org/*"],
-      "js": ["libs/jquery-3.1.0.min.js", "anchorMe.js"],
-      "run_at": "document_idle"
-    }
-  ]
+  "permissions": [
+    "activeTab"
+  ],
+
+  "background": {
+    "scripts": ["background-script.js"]
+  },
+
+  "browser_action": {
+    "default_icon": "icons/logoAction32.png"
+  }
 
 }
