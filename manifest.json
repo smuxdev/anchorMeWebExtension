@@ -1,0 +1,21 @@
+{
+
+  "manifest_version": 2,
+  "name": "AnchorMe",
+  "version": "1.0",
+
+  "description": "WebExtension written to set a reading mark in the pages you choose. Never forget where your reading finish last time.",
+
+  "icons": {
+    "48": "icons/logo.svg"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.mozilla.org/*"],
+      "js": ["libs/jquery-3.1.0.min.js", "anchorMe.js"],
+      "run_at": "document_idle"
+    }
+  ]
+
+}
