@@ -7,9 +7,9 @@ function handleClick() {
     chrome.tabs.executeScript(null, {
         file: "/content_scripts/anchorMe.js"
     });
-    chrome.tabs.executeScript(null, {
-        file: "/css/anchorMe.css"
-    });
+
+    // TODO: No se inserta el CSS. En el debug del add-on aparece un error
+    chrome.tabs.insertCSS({file: "/css/anchorMe.css"});
 
     // En principio no me hace falta hablar con el script de la página
     /*chrome.tabs.query({

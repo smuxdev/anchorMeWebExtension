@@ -151,14 +151,22 @@
                         }
                 },
                 textos: {
-                        btoIrHayMarcador:   "Ir al marcador!",
+                        /*btoIrHayMarcador:   "Ir al marcador!",
                         btoIrNoHayMarcador: "No hay marcador",
                         infoMarca: "Marcador añadido",
                         infoMarcable: "Marcable",
                         eliminar: "¿Eliminar?",
                         historicoMarcadores: "Histórico de marcadores",
                         btoImportar: "Importar Marcador",
-                        btoExportar: "Exportar Marcador"
+                        btoExportar: "Exportar Marcador"*/
+                        btoIrHayMarcador:   "Go to anchor!",
+                        btoIrNoHayMarcador: "No anchor yet",
+                        infoMarca: "Anchor added",
+                        infoMarcable: "Anchorable",
+                        eliminar: "¿Delete?",
+                        historicoMarcadores: "Anchor historic",
+                        btoImportar: "Import",
+                        btoExportar: "Export"
                 }
         };
 
@@ -168,245 +176,6 @@
                 hayMarcador: false,
                 enConfirmacion: false,
                 confirmacionEliminacion: false,
-
-                // Estilos necesarios para el script.
-                // Deben prefijarse para evitar repetir nombres de clases que ya pudiesen existir en la página (Me ha pasado!!!!)
-                // Mi prefijo será: smx-
-                estilos: " " +
-                         "@font-face{" +
-                         " " +
-                         "font-family:smx-FontAwesome;" +
-                         " src:url(https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.eot?#iefix) format('eot')," +
-                         "url(https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.woff) format('woff')," +
-                         "url(https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.ttf) format('truetype')," +
-                         "url(https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.svg#FontAwesome) format('svg');" +
-                         " font-weight:400;" +
-                         " font-style:normal;" +
-                         " " +
-                         "}" +
-                         ".smx-info {" +
-                         "        font: 14px/1.5 Courier New, monospace;" +
-                         "        font-weight: bold;" +
-                         "        display: inline;" +
-                         "        background: #d04848;" +
-                         "        color: white;" +
-                         "        opacity: 0;" +
-                         "        padding-right: 20px;" +
-                         "        text-align: right;" +
-                         "        box-sizing: border-box;" +
-                         "        position: fixed;" +
-                         "        z-index: 99997;" +
-                         "        top: 10px;" +
-                         "        left: -150px;" +
-                         "        width: 160px;" +
-                         "        box-shadow: #b5b5b5 0 2px 6px 2px;" +
-                         "        border-radius: 5px 2px 2px 5px;" +
-                         "        transition: width 0.3s ease-out;" +
-                         "}" +
-                         ".smx-contenedor {" +
-                         "        font: 14px/1.5 Courier New, monospace;" +
-                         "        background: black;" +
-                         "        color: white;" +
-                         "        opacity: 0.3;" +
-                         "        position: fixed;" +
-                         "        z-index: 99998;" +
-                         "        top: 10px;" +
-                         "        left: -150px;" +
-                         "        width: 160px;" +
-                         "        text-align: right;" +
-                         "        box-sizing: border-box;" +
-                         "        padding-right: 10px;" +
-                         "        border-radius: 5px 2px 2px 5px;" +
-                         "        box-shadow: #b5b5b5 0 2px 6px 2px;" +
-                         "        cursor: pointer;" +
-                         "        transition: width 0.3s ease-out 0.2s;" +
-                         "}" +
-                         ".smx-contenedor:hover {" +
-                         "        width: 310px;" +
-                         "}" +
-                         ".smx-boton {" +
-                         "        display: inline;" +
-                         "        font-weight: 800;" +
-                         "        /*'bold' es insuficiente*/" +
-                         "}" +
-                         ".smx-boton:hover {" +
-                         "        opacity: 0.6;" +
-                         "}" +
-                         ".smx-boton-hover-off:hover {" +
-                         "        opacity: 1;" +
-                         "}" +
-                         ".smx-boton:active {" +
-                         "        opacity: 0.3;" +
-                         "}" +
-                         ".smx-boton-active-off:active {" +
-                         "        opacity: 1;" +
-                         "}" +
-                         ".smx-eliminar {" +
-                         "        font-family: smx-FontAwesome;" +
-                         "        padding: 10px;" +
-                         "}" +
-                         ".smx-eliminar::after {" +
-                         "        content: '\\f014';" +
-                         "        font-size: 14px;" +
-                         "        display: inline-block;" +
-                         "        /* //NOTE: A los elementos inline no se les puede cambiar el ancho o alto */" +
-                         "        cursor: pointer;" +
-                         "        width: 10px;" +
-                         "}" +
-                         ".smx-eliminar.off::after {" +
-                         "        display: none;" +
-                         "        cursor: default;" +
-                         "}" +
-                         ".smx-eliminar-confirmar::after {" +
-                         "        content: '\\f057';" +
-                         "        font-size: 14px;" +
-                         "}" +
-                         ".smx-eliminar:hover::after {" +
-                         "        opacity: 0.6;" +
-                         "}" +
-                         ".smx-eliminar:active::after {" +
-                         "        opacity: 0.3;" +
-                         "}" +
-                         ".smx-exportar {" +
-                         "        font-family: smx-FontAwesome;" +
-                         "        /* //NOTE: padding: arriba-abajo izquierda-derecha */" +
-                         "        padding: 0 5px 0 10px;" +
-                         "}" +
-                         ".smx-exportar::after {" +
-                         "        content: '\\f102';" +
-                         "        font-size: 14px;" +
-                         "        display: inline-block;" +
-                         "        /* //NOTE: A los elementos inline no se les puede cambiar el ancho o alto */" +
-                         "        cursor: pointer;" +
-                         "        width: 10px;" +
-                         "}" +
-                         ".smx-exportar:hover::after {" +
-                         "        opacity: 0.6;" +
-                         "}" +
-                         ".smx-exportar:active::after {" +
-                         "        opacity: 0.3;" +
-                         "}" +
-                         ".smx-exportar.off::after {" +
-                         "        display: none;" +
-                         "        cursor: default;" +
-                         "}" +
-                         ".smx-importar {" +
-                         "        font-family: smx-FontAwesome;" +
-                         "        /* //NOTE: padding: arriba-abajo izquierda-derecha */" +
-                         "        padding: 0 10px 0 5px;" +
-                         "}" +
-                         ".smx-importar::after {" +
-                         "        content: '\\f103';" +
-                         "        font-size: 14px;" +
-                         "        display: inline-block;" +
-                         "        /* //NOTE: A los elementos inline no se les puede cambiar el ancho o alto */" +
-                         "        cursor: pointer;" +
-                         "        width: 10px;" +
-                         "}" +
-                         ".smx-importar:hover::after {" +
-                         "        opacity: 0.6;" +
-                         "}" +
-                         ".smx-importar:active::after {" +
-                         "        opacity: 0.3;" +
-                         "}" +
-                         ".smx-importar.off::after {" +
-                         "        display: none;" +
-                         "        cursor: default;" +
-                         "}" +
-                         ".smx-do-importar {" +
-                         "        display: none;" +
-                         "        background-color: rgba(247, 146, 146, 0.8);" +
-                         "        border-radius: 2px;" +
-                         "        padding: 0 10px 0 10px;" +
-                         "}" +
-                         ".smx-marcable {" +
-                         "        position: absolute;" +
-                         "        /*Si se utiliza 'em' se hereda el tamaño del contenedor*/" +
-                         "        font-family: smx-FontAwesome;" +
-                         "        width: 15px;" +
-                         "        height: 0;" +
-                         "        text-align: center;" +
-                         "        background-color: rgba(0, 0, 0, 0);" +
-                         "        color: black;" +
-                         "        opacity: 0;" +
-                         "        transform: translate(-15px, -15px);" +
-                         "        /*Lo mismo: transform:translateX(-18px);*/" +
-                         "        transition: opacity 0.4s ease-out;" +
-                         "}" +
-                         ".smx-marcable::after {" +
-                         "        content: '\\f13d';" +
-                         "        font-size: 14px;" +
-                         "}" +
-                         ".smx-lista-marcadores {" +
-                         "        opacity: 1;" +
-                         "        font-family: smx-FontAwesome;" +
-                         "        padding-right: 4px;" +
-                         "        background: black;" +
-                         "}" +
-                         ".smx-lista-marcadores::after {" +
-                         "        content: '\\f039';" +
-                         "        font-size: 1em;" +
-                         "}" +
-                         ".smx-lista-marcadores:hover::after {" +
-                         "        opacity: 0.6;" +
-                         "}" +
-                         ".smx-lista-marcadores:active::after {" +
-                         "        opacity: 0.3;" +
-                         "}" +
-                         ".smx-contenedor-marcadores {" +
-                         "        display: none;" +
-                         "        overflow: auto;" +
-                         "        font: 14px/1.5 Courier New, monospace;" +
-                         "        background-color: rgba(0, 0, 0, 0.6);" +
-                         "        color: white;" +
-                         "        text-align: center;" +
-                         "        position: fixed;" +
-                         "        z-index: 99999;" +
-                         "        top: 15px;" +
-                         "        left: 10px;" +
-                         "        width: 520px;" +
-                         "        height: 300px;" +
-                         "        box-sizing: border-box;" +
-                         "        padding: 20px 20px 20px 20px;" +
-                         "        border-radius: 5px 5px 5px 5px;" +
-                         "        box-shadow: #b5b5b5 0 2px 6px 2px;" +
-                         "        /*transition: height 0.3s ease-out;" +
-                         "	*/" +
-                         "}" +
-                         ".smx-titulo-historico {" +
-                         "        font-weight: bold;" +
-                         "        text-shadow: 1px 1px 2px black;" +
-                         "        background-color: rgb(247, 146, 146);" +
-                         "        margin: 5px;" +
-                         "        border-radius: 2px;" +
-                         "}" +
-                         ".smx-inpor-expor-container {" +
-                         "        background-color: rgba(0, 0, 0, 0.3);" +
-                         "        border-radius: 2px;" +
-                         "        float: right;" +
-                         "}" +
-                         ".smx-marcador-historico {" +
-                         "        text-align: left;" +
-                         "        background-color: black;" +
-                         "        margin: 5px;" +
-                         "        border-radius: 2px;" +
-                         "}" +
-                         ".smx-area-texto {" +
-                         "        display: none;" +
-                         "}" +
-                         "/* De todos los elementos con la clase '.smx-marcador-historico' " +
-                         "   solo al segundo se le aplicará este estilo. */" +
-                         " " +
-                         ".smx-marcador-historico:nth-child(0n+2) {" +
-                         "        font-weight: bold;" +
-                         "        color: rgb(247, 146, 146);" +
-                         "}" +
-                         "/*//NOTE: esta clase debe ser la última para que sobreescriba a las demás. */" +
-                         " " +
-                         ".activo {" +
-                         "        opacity: 1;" +
-                         "}",
-
                 loadScript: function () {
                         log("Cargando la interfaz de la extensión...");
                         this.cargarInterfaz();
@@ -418,13 +187,6 @@
 
                 // Carga los elementos de la interfaz y los cachea
                 cargarInterfaz: function () {
-
-                        // Añado los estilos a la página
-                    try {
-                        $("head").append("<style>" + this.estilos + "</style>");
-                    } catch (e) {
-                        log("AnchorMe Error: " + e);
-                    }
 
                         // Añado el botón de "Ir al Marcador"
                         $("body").append("<div class='smx-contenedor'>" +
