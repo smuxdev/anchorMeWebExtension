@@ -277,11 +277,19 @@
 
                 bindElements: function () {
 
+                        // Se añaden eventos de escucha
                         //Solo es posible añadir un marcador a los elementos h1, h2, h3, h4, y p.
                         $("h1, h2, h3, h4, p").on("dblclick", function (event) {
                                 if (event.ctrlKey) {
                                         this.setMarcador.call(this, event);
                                 }
+                        }.bind(this));
+
+                        //Evento de escucha para pulsación larga en dispositivos táctiles
+                        $("h1, h2, h3, h4, p").on("touchstart", function (event) {
+                                window.setTimeout(function() {
+                                        this.setMarcador.call(this, event);
+                                },1500);
                         }.bind(this));
 
                         $("h1, h2, h3, h4, p").on("mouseover", function (event) {
