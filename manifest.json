@@ -2,7 +2,7 @@
 
   "manifest_version": 2,
   "name": "AnchorMe",
-  "version": "1.1",
+  "version": "1.2",
 
   "description": "WebExtension written to set a reading mark in the pages you choose. Never forget where your reading finish last time.",
   "homepage_url": "https://github.com/babytruckdriver/anchorMeWebExtension",
