@@ -202,14 +202,14 @@
                         $("body").append("<div class='smx-contenedor-marcadores'>" +
                                          "      <div class='smx-titulo-historico'>" + util.textos.historicoMarcadores +
                                          "              <span class='smx-eliminar'></span>" +
-                                         "              <div class='smx-inpor-expor-container'>" +
-                                         "                      <span class='smx-exportar' alt='" + util.textos.btoExportar + "'></span>" +
-                                         "                      <span class='smx-importar' alt='" + util.textos.btoImportar + "'></span>" +
-                                         "              </div>" +
+                                         //"              <div class='smx-inpor-expor-container'>" +
+                                         //"                      <span class='smx-exportar' alt='" + util.textos.btoExportar + "'></span>" +
+                                         //"                      <span class='smx-importar' alt='" + util.textos.btoImportar + "'></span>" +
+                                         //"              </div>" +
                                          "      </div>" +
                                          "      <div class='smx-area-texto'>" +
                                          "              <textarea></textarea>" +
-                                         "              <span class='smx-importar smx-do-importar' alt='" + util.textos.btoImportar + "'></span>" +
+                                         //"              <span class='smx-importar smx-do-importar' alt='" + util.textos.btoImportar + "'></span>" +
                                          "      </div>" +
                                          "</div>");
                 },
@@ -225,10 +225,10 @@
 
                         this.contenedorMarcadores = $(".smx-contenedor-marcadores");
                         this.eliminar = this.contenedorMarcadores.find(".smx-eliminar");
-                        this.btoExportar = this.contenedorMarcadores.find(".smx-exportar");
-                        this.btoImportar = this.contenedorMarcadores.find(".smx-importar");
+                        //this.btoExportar = this.contenedorMarcadores.find(".smx-exportar");
+                        //this.btoImportar = this.contenedorMarcadores.find(".smx-importar");
                         this.txtArea = this.contenedorMarcadores.find(".smx-area-texto");
-                        this.doImportar = this.txtArea.find(".smx-do-importar");
+                        //this.doImportar = this.txtArea.find(".smx-do-importar");
                 },
 
                 // Retorna si hay marcadores o no (true/false)
@@ -431,7 +431,7 @@
                         var marcador = new util.cache.BookMarckObject();
 
                         this.txtArea.show("slow");
-                        this.doImportar.hide("slow");
+                        //this.doImportar.hide("slow");
                 },
 
                 importar: function (event) {
@@ -441,7 +441,7 @@
                         var marcador = new util.cache.BookMarckObject();
 
                         this.txtArea.show("slow");
-                        this.doImportar.show("slow");
+                        //this.doImportar.show("slow");
                 },
 
                 desactivarBoton: function () {
@@ -451,8 +451,8 @@
                         this.btoIr.text(util.textos.btoIrNoHayMarcador).addClass("smx-boton-hover-off smx-boton-active-off");
 
                         this.eliminar.addClass("off");
-                        this.btoExportar.addClass("off");
-                        this.btoImportar.addClass("off");
+                        //this.btoExportar.addClass("off");
+                        //this.btoImportar.addClass("off");
                 },
 
                 activarBoton: function () {
@@ -461,8 +461,8 @@
                         this.btoIr.text(util.textos.btoIrHayMarcador).removeClass("smx-boton-hover-off smx-boton-active-off");
 
                         this.eliminar.removeClass("off");
-                        this.btoExportar.removeClass("off");
-                        this.btoImportar.removeClass("off");
+                        //this.btoExportar.removeClass("off");
+                        //this.btoImportar.removeClass("off");
                 }
         };
 
